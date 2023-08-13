@@ -1,6 +1,5 @@
 using appointmentSystem.Data;
 using appointmentSystem.Exceptions;
-using appointmentSystem.Models;
 using appointmentSystem.Models.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace appointmentSystem.Controllers.Features.Clients;
 
 [ApiController]
+[Route("[controller]")]
 [ApiExplorerSettings(GroupName = "Clients")]
 public class GetClientByIdController : ControllerBase
 {
