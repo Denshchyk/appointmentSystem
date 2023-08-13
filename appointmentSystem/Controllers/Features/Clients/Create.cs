@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace appointmentSystem.Controllers.Features.Clients;
 
 [ApiController]
+[Route("[controller]")]
 [ApiExplorerSettings(GroupName = "Clients")]
 public class CreateClientController : ControllerBase
 {
@@ -18,8 +19,8 @@ public class CreateClientController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpPost("api/clients")]
-    
+    [HttpPost("{Name}, {Phone}")]
+
     public async Task<ClientViewModel> CreateClient(CreateClientCommand command)
         {
             var result = await _mediator.Send(command);
@@ -49,7 +50,7 @@ public class CreateClientController : ControllerBase
             {
                 var client = new Client
                 {
-                    Id = request.Id,
+                    Id = Guid.NewGuid(),
                     Name = request.Name,
                     Phone = request.Phone
                 };
