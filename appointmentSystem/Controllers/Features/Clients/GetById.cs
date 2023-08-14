@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace appointmentSystem.Controllers.Features.Clients;
 
 [ApiController]
-[Route("[controller]")]
 [ApiExplorerSettings(GroupName = "Clients")]
 public class GetClientByIdController : ControllerBase
 {

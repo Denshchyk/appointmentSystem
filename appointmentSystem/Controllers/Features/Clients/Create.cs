@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace appointmentSystem.Controllers.Features.Clients;
 
 [ApiController]
-[Route("[controller]")]
 [ApiExplorerSettings(GroupName = "Clients")]
 public class CreateClientController : ControllerBase
 {
@@ -19,46 +18,41 @@ public class CreateClientController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpPost("{Name}, {Phone}")]
-
+    [HttpPost("api/clients")]
     public async Task<ClientViewModel> CreateClient(CreateClientCommand command)
-        {
-            var result = await _mediator.Send(command);
+    {
+        var result = await _mediator.Send(command);
 
-            return result;
-        }
+        return result;
+    }
 
     public record CreateClientCommand : IRequest<ClientViewModel>
     {
-        public Guid Id { get; set; }
-
-        public string? Name { get; set; }
-
-        [Required] [StringLength(12)] public string? Phone { get; set; }
+        [Required] [StringLength(20)] public string Name { get; set; }
+        [Required] [StringLength(12)] public string Phone { get; set; }
     };
-   
-        public class CreateClientCommandHandler : IRequestHandler<CreateClientCommand, ClientViewModel>
+
+    public class CreateClientCommandHandler : IRequestHandler<CreateClientCommand, ClientViewModel>
+    {
+        private readonly AppDbContext _dbContext;
+
+        public CreateClientCommandHandler(AppDbContext dbContext)
         {
-            private readonly AppDbContext _dbContext;
+            _dbContext = dbContext;
+        }
 
-            public CreateClientCommandHandler(AppDbContext dbContext)
+        public async Task<ClientViewModel> Handle(CreateClientCommand request, CancellationToken cancellationToken)
+        {
+            var client = new Client
             {
-                _dbContext = dbContext;
-            }
+                Name = request.Name,
+                Phone = request.Phone
+            };
 
-            public async Task<ClientViewModel> Handle(CreateClientCommand request, CancellationToken cancellationToken)
-            {
-                var client = new Client
-                {
-                    Id = Guid.NewGuid(),
-                    Name = request.Name,
-                    Phone = request.Phone
-                };
+            await _dbContext.Clients.AddAsync(client, cancellationToken);
+            await _dbContext.SaveChangesAsync(cancellationToken);
 
-                await _dbContext.Clients.AddAsync(client, cancellationToken);
-                await _dbContext.SaveChangesAsync(cancellationToken);
-
-                return new ClientViewModel(client.Id, client.Name, client.Phone);
-            }
+            return new ClientViewModel(client.Id, client.Name, client.Phone);
+        }
     }
 }
