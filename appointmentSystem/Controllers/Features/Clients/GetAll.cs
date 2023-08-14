@@ -43,6 +43,11 @@ public class ClientsController : ControllerBase
         public async Task<List<ClientViewModel>> Handle(GetAllClientsQuery request, CancellationToken cancellationToken)
         {
             var clients = await _dbContext.Clients.ToListAsync(cancellationToken);
+            
+            if (clients is null)
+            {
+                throw new NotFoundException("Clients are not found");
+            }
 
             return clients.Select(client => new ClientViewModel(client.Id, client.Name, client.Phone)).ToList();
         }

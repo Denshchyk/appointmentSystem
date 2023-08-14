@@ -87,7 +87,3 @@ V
 &appointmentSystem/Data/AppDbContext.cs,3/3/3323e1272c96da6f53cf6f6f0d70ceee2655753d
 R
 "appointmentSystem/appsettings.json,8/a/8ab83d6d1b64002ef1fef03360bf84e3ae15f8a3
-h
-8appointmentSystem/Controllers/Features/Clients/Delete.cs,a/f/afbc1fc0df5538463469426d6cac6d84ec5af7be
-h
-8appointmentSystem/Controllers/Features/Clients/Update.cs,f/3/f3c269f107348c4d3ea10a4be0b973ea8eab47c2
