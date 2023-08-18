@@ -21,7 +21,7 @@ public class UpdateServiceController : ControllerBase
     [HttpPut("api/services/{id}")]
     public async Task<IActionResult> UpdateService(Guid id, UpdateServiceViewModel updateServiceViewModel)
     {
-        var updateServiceCommand = new UpdateServiceCommand (id, updateServiceViewModel.Name, updateServiceViewModel.Duration, updateServiceViewModel.Price);
+        var updateServiceCommand = new UpdateServiceCommand (id, updateServiceViewModel.Name,  updateServiceViewModel.Description, updateServiceViewModel.DurationInMinutes, updateServiceViewModel.Price);
         var result = await _mediator.Send(updateServiceCommand);
 
         return Ok(result);
@@ -30,12 +30,13 @@ public class UpdateServiceController : ControllerBase
     public record UpdateServiceViewModel
     {
         [Required] [StringLength(20)] public string Name { get; set; }
-        [Required] [CreateServiceController.MaxDurationAttribute] public TimeSpan Duration { get; set; }
-        [Required] [Range(0, 1000)] public decimal Price { get; set; }
+        [Required] [StringLength(100)] public string Description { get; set; }
+        [Required] public int DurationInMinutes { get; set; }
+        [Required] public decimal Price { get; set; }
     };
     
 
-    public record UpdateServiceCommand(Guid Id, string Name, TimeSpan Duration, decimal Price) : IRequest<ServiceViewModel>;
+    public record UpdateServiceCommand(Guid Id, string Name, string Description, int DurationInMinutes, decimal Price) : IRequest<ServiceViewModel>;
 
     public class UpdateServiceCommandHandler : IRequestHandler<Service.UpdateServiceController.UpdateServiceCommand, ServiceViewModel>
     {
@@ -56,12 +57,13 @@ public class UpdateServiceController : ControllerBase
             }
 
             service.Name = request.Name;
-            service.Duration = request.Duration;
+            service.Description = request.Description;
+            service.DurationInMinutes = request.DurationInMinutes;
             service.Price = request.Price;
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 
-            return new ServiceViewModel(service.Id, service.Name, service.Duration, service.Price);
+            return new ServiceViewModel(service.Id, service.Name, service.Description, service.DurationInMinutes, service.Price);
         }
     }
 }

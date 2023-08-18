@@ -46,7 +46,7 @@ public class ServiceController : ControllerBase
                 throw new NotFoundException("Services are not found");
             }
 
-            return service.Select(service => new ServiceViewModel(service.Id, service.Name, service.Duration, service.Price)).ToList();
+            return service.Select(service => new ServiceViewModel(service.Id, service.Name, service.Description, service.DurationInMinutes, service.Price)).ToList();
         }
     }
 }

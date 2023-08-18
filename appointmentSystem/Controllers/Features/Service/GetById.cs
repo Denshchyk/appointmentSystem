@@ -45,7 +45,7 @@ public class GetServiceByIdController : ControllerBase
                 throw new NotFoundException("Service name is not found");
             }
             
-            return new ServiceViewModel(service.Id, service.Name, service.Duration, service.Price);
+            return new ServiceViewModel(service.Id, service.Name, service.Description, service.DurationInMinutes, service.Price);
         }
     }
 }

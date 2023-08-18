@@ -29,25 +29,11 @@ public class CreateServiceController : ControllerBase
     public record CreateServiceCommand : IRequest<ServiceViewModel>
     {
         [Required] [StringLength(20)] public string Name { get; set; }
-        [Required] [MaxDuration] public TimeSpan Duration { get; set; }
-        [Required] [Range(0, 1000)] public decimal Price { get; set; }
+        [Required] [StringLength(100)] public string Description { get; set; }
+        [Required] public int DurationInMinutes { get; set; }
+        [Required] public decimal Price { get; set; }
     };
     
-    public class MaxDurationAttribute : ValidationAttribute
-    {
-        private readonly TimeSpan _maxDuration = TimeSpan.FromHours(24);
-
-        public override bool IsValid(object value)
-        {
-            if (value is TimeSpan timeSpan)
-            {
-                return timeSpan <= _maxDuration;
-            }
-
-            return false;
-        }
-    }
-
     public class CreateServiceCommandHandler : IRequestHandler<Service.CreateServiceController.CreateServiceCommand, ServiceViewModel>
     {
         private readonly AppDbContext _dbContext;
@@ -62,14 +48,15 @@ public class CreateServiceController : ControllerBase
             var service = new Models.Service
             {
                 Name = request.Name,
-                Duration = request.Duration,
+                Description = request.Description,
+                DurationInMinutes = request.DurationInMinutes,
                 Price = request.Price
             };
 
             await _dbContext.Services.AddAsync(service, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
 
-            return new ServiceViewModel(service.Id, service.Name, service.Duration, service.Price);
+            return new ServiceViewModel(service.Id, service.Name, service.Description, service.DurationInMinutes, service.Price);
         }
     }
 }
