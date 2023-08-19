@@ -6,6 +6,7 @@ using appointmentSystem.Models;
 using appointmentSystem.Models.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace appointmentSystem.Controllers.Features.Service;
 
@@ -47,6 +48,12 @@ public class CreateServiceController : ControllerBase
 
         public async Task<ServiceViewModel> Handle(Service.CreateServiceController.CreateServiceCommand request, CancellationToken cancellationToken)
         {
+            var existingService = await _dbContext.Services.FirstOrDefaultAsync(s => s.Name == request.Name, cancellationToken);
+
+            if(existingService != null)
+            {
+                throw new InvalidOperationException($"A service with the name {request.Name} already exists.");
+            }
             var service = new Models.Service
             {
                 Name = request.Name,

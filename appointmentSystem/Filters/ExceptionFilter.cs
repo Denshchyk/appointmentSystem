@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Net;
 using appointmentSystem.Exceptions;
 using Microsoft.AspNetCore.Mvc;
@@ -38,6 +39,11 @@ public class ExceptionFilter : IExceptionFilter, IOrderedFilter
             case BadGatewayException badGateway:
                 statusCode = HttpStatusCode.BadGateway;
                 errorMessage = "Bad Gateway. More details: https://datatracker.ietf.org/doc/html/rfc7231#section-6.6.3";
+                break;
+            
+            case InvalidOperationException invalidOperationException:
+                statusCode = HttpStatusCode.BadRequest;
+                errorMessage = "Client with this phone or service with this name have already created. Please change and try again";
                 break;
 
             default:

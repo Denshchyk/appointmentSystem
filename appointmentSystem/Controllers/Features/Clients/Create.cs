@@ -6,6 +6,7 @@ using appointmentSystem.Models;
 using appointmentSystem.Models.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace appointmentSystem.Controllers.Features.Clients;
 
@@ -45,6 +46,11 @@ public class CreateClientController : ControllerBase
 
         public async Task<ClientViewModel> Handle(CreateClientCommand request, CancellationToken cancellationToken)
         {
+            var existingClient = await _dbContext.Clients.FirstOrDefaultAsync(c => c.Phone == request.Phone, cancellationToken);
+            if(existingClient != null)
+            {
+                throw new InvalidOperationException($"A client with the phone {request.Phone} already exists.");
+            }
             var client = new Client
             {
                 Name = request.Name,
