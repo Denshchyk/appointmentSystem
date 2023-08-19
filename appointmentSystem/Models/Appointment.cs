@@ -1,3 +1,5 @@
+using System;
+
 namespace appointmentSystem.Models;
 
 public class Appointment

@@ -1,3 +1,5 @@
+using System;
+
 namespace appointmentSystem.Exceptions;
 
 public class InternalServerErrorException : Exception
