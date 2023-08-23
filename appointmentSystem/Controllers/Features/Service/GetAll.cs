@@ -25,14 +25,14 @@ public class ServiceController : ControllerBase
     [HttpGet("api/services")]
     public async Task<IActionResult> GetAllServices()
     {
-        var services = await _mediator.Send(new Service.ServiceController.GetAllServicesQuery());
+        var services = await _mediator.Send(new GetAllServicesQuery());
 
         return Ok(services);
     }
     
     public record GetAllServicesQuery : IRequest<List<ServiceViewModel>>;
     
-    public class GetAllServicesQueryHandler : IRequestHandler<Service.ServiceController.GetAllServicesQuery, List<ServiceViewModel>>
+    public class GetAllServicesQueryHandler : IRequestHandler<GetAllServicesQuery, List<ServiceViewModel>>
     {
         private readonly AppDbContext _dbContext;
 
@@ -41,7 +41,7 @@ public class ServiceController : ControllerBase
             _dbContext = dbContext;
         }
     
-        public async Task<List<ServiceViewModel>> Handle(Service.ServiceController.GetAllServicesQuery request, CancellationToken cancellationToken)
+        public async Task<List<ServiceViewModel>> Handle(GetAllServicesQuery request, CancellationToken cancellationToken)
         {
             var service = await _dbContext.Services.ToListAsync(cancellationToken);
             

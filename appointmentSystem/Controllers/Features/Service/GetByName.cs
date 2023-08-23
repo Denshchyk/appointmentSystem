@@ -17,7 +17,7 @@ public class GetServiceByNameController : ControllerBase
         _mediator = mediator;
     }
     
-    [HttpGet("api/services/{id}")]
+    [HttpGet("api/services/{name}")]
     public async Task<IActionResult> GetService(string name)
     {
         var serviceModel = await _mediator.Send(new GetServiceByNameQuery(name));

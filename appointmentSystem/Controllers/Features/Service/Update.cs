@@ -41,7 +41,7 @@ public class UpdateServiceController : ControllerBase
 
     public record UpdateServiceCommand(Guid Id, string Name, string Description, int DurationInMinutes, decimal Price) : IRequest<ServiceViewModel>;
 
-    public class UpdateServiceCommandHandler : IRequestHandler<Service.UpdateServiceController.UpdateServiceCommand, ServiceViewModel>
+    public class UpdateServiceCommandHandler : IRequestHandler<UpdateServiceCommand, ServiceViewModel>
     {
         private readonly AppDbContext _dbContext;
 
@@ -50,7 +50,7 @@ public class UpdateServiceController : ControllerBase
             _dbContext = dbContext;
         }
 
-        public async Task<ServiceViewModel> Handle(Service.UpdateServiceController.UpdateServiceCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceViewModel> Handle(UpdateServiceCommand request, CancellationToken cancellationToken)
         {
             var service = await _dbContext.Services.FindAsync(request.Id);
 

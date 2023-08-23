@@ -22,7 +22,7 @@ public class CreateServiceController : ControllerBase
     }
 
     [HttpPost("api/services")]
-    public async Task<ServiceViewModel> CreateService(Service.CreateServiceController.CreateServiceCommand command)
+    public async Task<ServiceViewModel> CreateService(CreateServiceCommand command)
     {
         var result = await _mediator.Send(command);
 
@@ -37,7 +37,7 @@ public class CreateServiceController : ControllerBase
         [Required] public decimal Price { get; set; }
     };
     
-    public class CreateServiceCommandHandler : IRequestHandler<Service.CreateServiceController.CreateServiceCommand, ServiceViewModel>
+    public class CreateServiceCommandHandler : IRequestHandler<CreateServiceCommand, ServiceViewModel>
     {
         private readonly AppDbContext _dbContext;
 
@@ -46,7 +46,7 @@ public class CreateServiceController : ControllerBase
             _dbContext = dbContext;
         }
 
-        public async Task<ServiceViewModel> Handle(Service.CreateServiceController.CreateServiceCommand request, CancellationToken cancellationToken)
+        public async Task<ServiceViewModel> Handle(CreateServiceCommand request, CancellationToken cancellationToken)
         {
             var existingService = await _dbContext.Services.FirstOrDefaultAsync(s => s.Name == request.Name, cancellationToken);
 

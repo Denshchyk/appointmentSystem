@@ -22,14 +22,14 @@ public class DeleteServiceController : ControllerBase
     [HttpDelete("api/services/{id}")]
     public async Task<IActionResult> DeleteService(Guid id)
     {
-        await _mediator.Send(new Service.DeleteServiceController.DeleteServiceCommand(id));
+        await _mediator.Send(new DeleteServiceCommand(id));
 
         return NoContent();
     }
 
     public record DeleteServiceCommand(Guid Id) : IRequest;
 
-    public class DeleteServiceCommandHandler : IRequestHandler<Service.DeleteServiceController.DeleteServiceCommand>
+    public class DeleteServiceCommandHandler : IRequestHandler<DeleteServiceCommand>
     {
         private readonly AppDbContext _dbContext;
 
@@ -38,7 +38,7 @@ public class DeleteServiceController : ControllerBase
             _dbContext = dbContext;
         }
 
-        public async Task Handle(Service.DeleteServiceController.DeleteServiceCommand request,
+        public async Task Handle(DeleteServiceCommand request,
             CancellationToken cancellationToken)
         {
             var service = await _dbContext.Services.FindAsync(request.Id);
