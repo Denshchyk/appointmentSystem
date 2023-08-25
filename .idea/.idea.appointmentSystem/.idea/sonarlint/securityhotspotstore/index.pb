@@ -115,8 +115,6 @@ f
 6appointmentSystem/Models/ModelsView/ClientViewModel.cs,c/8/c887ed19e498cf6bce96effeacf60d2dd807fc28
 \
 ,appointmentSystem/Filters/ExceptionFilter.cs,e/4/e44fbd2a84d6fb9a8f5ff8e2a5f4859970721c83
-T
-$appointmentSystem/Models/TimeSlot.cs,0/2/024fc84740292cfafb3954e5f4b8791d6044c2b1
 W
 'appointmentSystem/Models/Appointment.cs,b/3/b34b24297c787ccae10fe1f1fe09060867ec0ffe
 R

@@ -121,5 +121,3 @@ R
 "appointmentSystem/Models/Client.cs,7/a/7a7cef3da77bf9af7d42d5ac3ba1621ed2172c96
 S
 #appointmentSystem/Models/Service.cs,c/7/c70e911d1bd63b975d6153c5b52ebfbdd6942610
-T
-$appointmentSystem/Models/TimeSlot.cs,0/2/024fc84740292cfafb3954e5f4b8791d6044c2b1

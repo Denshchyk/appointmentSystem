@@ -45,16 +45,17 @@ public class CreateTimeSlotController : ControllerBase
         public async Task<TimeSlotViewModel> Handle(CreateTimeSlotCommand request, CancellationToken cancellationToken)
         {
             var service = await _dbContext.Services.FindAsync(request.ServiceId);
-            var endTime = request.StartTime.AddMinutes(service.DurationInMinutes);
-            var existingTimeSlot = await _dbContext.TimeSlots.FirstOrDefaultAsync(x => x.EndTime <= request.StartTime || x.StartTime <= request.EndTime , cancellationToken);
-            
             if (service is null)
             {
                 throw new InvalidOperationException("This service is not found");
             }
-            if(existingTimeSlot is not null)
+            var endTime = request.StartTime.AddMinutes(service.DurationInMinutes);
+            var hasOverlappingTimeSlot = await _dbContext.TimeSlots
+                .AnyAsync(x => x.EndTime >= request.StartTime && x.StartTime <= endTime, cancellationToken);
+    
+            if (hasOverlappingTimeSlot)
             {
-                throw new InvalidOperationException($"A time slot with the time {request.StartTime} already exists.");
+                throw new InvalidOperationException($"A time slot within the requested time range already exists.");
             }
             
             var timeSlot = new Models.TimeSlot

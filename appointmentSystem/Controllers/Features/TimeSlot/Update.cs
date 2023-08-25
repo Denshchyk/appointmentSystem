@@ -22,7 +22,7 @@ public class UpdateTimeSlotController : ControllerBase
     [HttpPut("api/TimeSlot/{id}")]
     public async Task<IActionResult> UpdateTimeSlot(Guid id, UpdateTimeSlotViewModel updateTimeSlotViewModel)
     {
-        var updateTimeSlotCommand = new UpdateTimeSlotCommand (id, updateTimeSlotViewModel.StartTime,  updateTimeSlotViewModel.EndTime);
+        var updateTimeSlotCommand = new UpdateTimeSlotCommand (id, updateTimeSlotViewModel.StartTime,  updateTimeSlotViewModel.EndTime, updateTimeSlotViewModel.ServiceId);
         var result = await _mediator.Send(updateTimeSlotCommand);
 
         return Ok(result);
@@ -37,7 +37,7 @@ public class UpdateTimeSlotController : ControllerBase
     };
     
 
-    public record UpdateTimeSlotCommand(Guid Id, DateTime StartTime, DateTime EndTime) : IRequest<TimeSlotViewModel>;
+    public record UpdateTimeSlotCommand(Guid Id, DateTime StartTime, DateTime EndTime, Guid ServiceId) : IRequest<TimeSlotViewModel>;
 
     public class UpdateTimeSlotCommandHandler : IRequestHandler<UpdateTimeSlotCommand, TimeSlotViewModel>
     {
@@ -50,17 +50,29 @@ public class UpdateTimeSlotController : ControllerBase
 
         public async Task<TimeSlotViewModel> Handle(UpdateTimeSlotCommand request, CancellationToken cancellationToken)
         {
-            var service = await _dbContext.Services.FindAsync(request.Id);
-            var timeSlot = await _dbContext.TimeSlots.FindAsync(request.Id);
-            
+            var service = await _dbContext.Services.FindAsync(request.ServiceId);
+            if (service is null)
+            {
+                throw new InvalidOperationException("This service is not found");
+            }
 
+            var timeSlot = await _dbContext.TimeSlots.FindAsync(request.Id);
             if (timeSlot is null)
             {
-                throw new NotFoundException("TimeSlot is not found");
+                throw new InvalidOperationException("This timeSlot is not found");
+            }
+            
+            var endTime = request.StartTime.AddMinutes(service.DurationInMinutes);
+            var hasOverlappingTimeSlot = await _dbContext.TimeSlots
+                .AnyAsync(x => x.EndTime >= request.StartTime && x.StartTime <= endTime, cancellationToken);
+    
+            if (hasOverlappingTimeSlot)
+            {
+                throw new InvalidOperationException($"A time slot within the requested time range already exists.");
             }
 
             timeSlot.StartTime = request.StartTime;
-            timeSlot.EndTime = request.StartTime.AddMinutes(service.DurationInMinutes);
+            timeSlot.EndTime = endTime;
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 
