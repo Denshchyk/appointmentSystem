@@ -23,7 +23,7 @@ public class UpdateAppointmentController : ControllerBase
     public async Task<IActionResult> UpdateAppointment(Guid id, UpdateAppointmentViewModel updateAppointmentViewModel)
     {
         var updateAppointmentCommand = new UpdateAppointmentCommand(id, updateAppointmentViewModel.ClientId,
-            updateAppointmentViewModel.TimeSlotId, updateAppointmentViewModel.ServiceId);
+            updateAppointmentViewModel.TimeSlotId);
         var result = await _mediator.Send(updateAppointmentCommand);
 
         return Ok(result);
@@ -34,11 +34,10 @@ public class UpdateAppointmentController : ControllerBase
         [Required] public Guid Id { get; set; }
         [Required] public Guid ClientId { get; set; }
         [Required] public Guid TimeSlotId { get; set; }
-        [Required] public Guid ServiceId { get; set; }
     };
 
     public record UpdateAppointmentCommand
-        (Guid Id, Guid ClientId, Guid TimeSlotId, Guid ServiceId) : IRequest<AppointmentViewModel>;
+        (Guid Id, Guid ClientId, Guid TimeSlotId) : IRequest<AppointmentViewModel>;
 
     public class UpdateAppointmentCommandHandler : IRequestHandler<UpdateAppointmentCommand, AppointmentViewModel>
     {
@@ -72,21 +71,12 @@ public class UpdateAppointmentController : ControllerBase
                 throw new InvalidOperationException($"A TimeSlot with id {request.TimeSlotId} is not found.");
             }
 
-            var service =
-                await _dbContext.Services.FirstOrDefaultAsync(c => c.Id == request.ServiceId, cancellationToken);
-            if (service is null)
-            {
-                throw new InvalidOperationException($"A Service with id {request.ServiceId} is not found.");
-            }
-
             appointment.ClientId = request.ClientId;
             appointment.TimeSlotId = request.TimeSlotId;
-            appointment.ServiceId = request.ServiceId;
 
             await _dbContext.SaveChangesAsync(cancellationToken);
 
-            return new AppointmentViewModel(appointment.Id, appointment.ClientId, appointment.TimeSlotId,
-                appointment.ServiceId);
+            return new AppointmentViewModel(appointment.Id, appointment.ClientId, appointment.TimeSlotId);
         }
     }
 }

@@ -46,7 +46,7 @@ public class AppointmentsController : ControllerBase
                 throw new NotFoundException("Appointments are not found");
             }
 
-            return appointments.Select(appointment => new AppointmentViewModel(appointment.Id, appointment.ClientId, appointment.TimeSlotId, appointment.ServiceId)).ToList();
+            return appointments.Select(appointment => new AppointmentViewModel(appointment.Id, appointment.ClientId, appointment.TimeSlotId)).ToList();
         }
     }
 }

@@ -45,8 +45,7 @@ public class GetAppointmentByIdController : ControllerBase
                 throw new NotFoundException("Appointment is not found");
             }
 
-            return new AppointmentViewModel(appointment.Id, appointment.ClientId, appointment.TimeSlotId,
-                appointment.ServiceId);
+            return new AppointmentViewModel(appointment.Id, appointment.ClientId, appointment.TimeSlotId);
         }
     }
 }

@@ -43,7 +43,7 @@ public class ExceptionFilter : IExceptionFilter, IOrderedFilter
             
             case InvalidOperationException invalidOperationException:
                 statusCode = HttpStatusCode.BadRequest;
-                errorMessage = "Client with this phone or service with this name have already created. Please change and try again";
+                errorMessage = invalidOperationException.Message;
                 break;
 
             default:

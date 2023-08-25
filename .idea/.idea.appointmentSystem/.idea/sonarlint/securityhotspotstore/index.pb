@@ -77,8 +77,6 @@ W
 'appointmentSystem/ClientApp/src/main.ts,9/2/92f6b63cac6c1f3e4ca73a753d47a1ba45af806f
 L
 appointmentSystem/.gitignore,1/7/17f03388f60d842b0f85ac6cfb0a3b913b01e61b
-V
-&appointmentSystem/Data/AppDbContext.cs,3/3/3323e1272c96da6f53cf6f6f0d70ceee2655753d
 R
 "appointmentSystem/appsettings.json,8/a/8ab83d6d1b64002ef1fef03360bf84e3ae15f8a3
 ^
@@ -107,8 +105,6 @@ l
 <appointmentSystem/Exceptions/InternalServerErrorException.cs,7/9/79a7498d894681b0ed9c86a392870ca2b51a85c7
 c
 3appointmentSystem/Exceptions/BadGatewayException.cs,d/9/d9c9a6acb58cd666a85fc3ead6f924258afaeccf
-\
-,appointmentSystem/Filters/ExceptionFilter.cs,e/4/e44fbd2a84d6fb9a8f5ff8e2a5f4859970721c83
 R
 "appointmentSystem/Models/Client.cs,7/a/7a7cef3da77bf9af7d42d5ac3ba1621ed2172c96
 S

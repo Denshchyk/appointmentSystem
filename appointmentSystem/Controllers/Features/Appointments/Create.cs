@@ -31,7 +31,6 @@ public class CreateAppointmentController : ControllerBase
     {
         [Required] public Guid ClientId { get; set; }
         [Required] public Guid TimeSlotId { get; set; }
-        [Required] public Guid ServiceId { get; set; }
     };
 
     public class CreateAppointmentCommandHandler : IRequestHandler<CreateAppointmentCommand, AppointmentViewModel>
@@ -55,24 +54,17 @@ public class CreateAppointmentController : ControllerBase
             {
                 throw new InvalidOperationException($"A TimeSlot with id {request.TimeSlotId} is not found.");
             }
-            var service = await _dbContext.Services.FirstOrDefaultAsync(c => c.Id == request.ServiceId, cancellationToken);
-            if(service is null)
-            {
-                throw new InvalidOperationException($"A Service with id {request.ServiceId} is not found.");
-            }
-            
+
             var appointment = new Appointment
             {
                 ClientId = request.ClientId,
                 TimeSlotId = request.TimeSlotId,
-                ServiceId = request.ServiceId
             };
 
             await _dbContext.Appointments.AddAsync(appointment, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);
 
-            return new AppointmentViewModel(appointment.Id, appointment.ClientId, appointment.TimeSlotId,
-                appointment.ServiceId);
+            return new AppointmentViewModel(appointment.Id, appointment.ClientId, appointment.TimeSlotId);
         }
     }
 }
