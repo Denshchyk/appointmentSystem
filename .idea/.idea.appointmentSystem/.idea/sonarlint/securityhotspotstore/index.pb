@@ -99,24 +99,16 @@ EappointmentSystem/Migrations/20230815162602_deleteNullableInModels.cs,f/8/f8ad
 KappointmentSystem/Migrations/20230818115233_changeDurationInInt.Designer.cs,2/6/26571bc225d7fd6ebf3df67369da158ebcb38f74
 r
 BappointmentSystem/Migrations/20230818115233_changeDurationInInt.cs,6/3/638a158615bc34a8259cedc58d1fdd3747f2ee21
-i
-9appointmentSystem/Migrations/AppDbContextModelSnapshot.cs,0/5/05b7a68c824533811d632c29a356e8953b40c9f6
 a
 1appointmentSystem/Exceptions/NotFoundException.cs,4/0/408cfff7ea1ee3f73cc5572d4ac963c4be09795b
 L
 appointmentSystem/Program.cs,3/9/391e181fab9b21d6eef17fbf8f2b0a1e5a543cdd
-g
-7appointmentSystem/Models/ModelsView/ServiceViewModel.cs,5/8/58a30d36fcffdd8d13cc3768e687d3dbad8aedd7
 l
 <appointmentSystem/Exceptions/InternalServerErrorException.cs,7/9/79a7498d894681b0ed9c86a392870ca2b51a85c7
 c
 3appointmentSystem/Exceptions/BadGatewayException.cs,d/9/d9c9a6acb58cd666a85fc3ead6f924258afaeccf
-f
-6appointmentSystem/Models/ModelsView/ClientViewModel.cs,c/8/c887ed19e498cf6bce96effeacf60d2dd807fc28
 \
 ,appointmentSystem/Filters/ExceptionFilter.cs,e/4/e44fbd2a84d6fb9a8f5ff8e2a5f4859970721c83
-W
-'appointmentSystem/Models/Appointment.cs,b/3/b34b24297c787ccae10fe1f1fe09060867ec0ffe
 R
 "appointmentSystem/Models/Client.cs,7/a/7a7cef3da77bf9af7d42d5ac3ba1621ed2172c96
 S
