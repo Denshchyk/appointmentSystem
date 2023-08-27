@@ -5,11 +5,12 @@ using appointmentSystem.Data;
 using appointmentSystem.Models;
 using appointmentSystem.Models.Models;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace appointmentSystem.Controllers.Features.Service;
-
+[Authorize]
 [ApiController]
 [ApiExplorerSettings(GroupName = "Services")]
 public class CreateServiceController : ControllerBase
