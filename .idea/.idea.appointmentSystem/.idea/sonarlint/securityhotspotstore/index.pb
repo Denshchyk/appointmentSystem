@@ -77,18 +77,12 @@ W
 'appointmentSystem/ClientApp/src/main.ts,9/2/92f6b63cac6c1f3e4ca73a753d47a1ba45af806f
 L
 appointmentSystem/.gitignore,1/7/17f03388f60d842b0f85ac6cfb0a3b913b01e61b
-R
-"appointmentSystem/appsettings.json,8/a/8ab83d6d1b64002ef1fef03360bf84e3ae15f8a3
-^
-.appointmentSystem/appsettings.Development.json,b/d/bd196caa913c77173162ba7c00cc46d3ad28e92b
 j
 :appointmentSystem/Migrations/20230810082242_Application.cs,4/a/4a1999b05effa82a6a1814aaf4c2d7b723edbf2b
 j
 :appointmentSystem/Migrations/20230813143453_removeEmail.cs,9/d/9d37b6990dcba470c4039498140f9504def5a2e5
 s
 CappointmentSystem/Migrations/20230813143453_removeEmail.Designer.cs,4/5/45c86c2f0e30dab9dab7816880dfc802de0339e5
-Z
-*appointmentSystem/appointmentSystem.csproj,6/f/6f5bdb78981c2839fd79512565f43e0d51c96e47
 ~
 NappointmentSystem/Migrations/20230815162602_deleteNullableInModels.Designer.cs,8/5/85989e6f692a1bed1db43f906674e5611b5e569f
 u
@@ -99,8 +93,6 @@ r
 BappointmentSystem/Migrations/20230818115233_changeDurationInInt.cs,6/3/638a158615bc34a8259cedc58d1fdd3747f2ee21
 a
 1appointmentSystem/Exceptions/NotFoundException.cs,4/0/408cfff7ea1ee3f73cc5572d4ac963c4be09795b
-L
-appointmentSystem/Program.cs,3/9/391e181fab9b21d6eef17fbf8f2b0a1e5a543cdd
 l
 <appointmentSystem/Exceptions/InternalServerErrorException.cs,7/9/79a7498d894681b0ed9c86a392870ca2b51a85c7
 c

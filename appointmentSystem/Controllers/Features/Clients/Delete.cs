@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 using appointmentSystem.Data;
 using appointmentSystem.Exceptions;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace appointmentSystem.Controllers.Features.Clients;
-
 [ApiController]
 [ApiExplorerSettings(GroupName = "Clients")]
 public class DeleteClientController : ControllerBase

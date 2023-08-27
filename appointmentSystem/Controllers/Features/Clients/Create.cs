@@ -5,6 +5,7 @@ using appointmentSystem.Data;
 using appointmentSystem.Models;
 using appointmentSystem.Models.Models;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
