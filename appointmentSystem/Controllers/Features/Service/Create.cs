@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace appointmentSystem.Controllers.Features.Service;
-[Authorize]
+
 [ApiController]
 [ApiExplorerSettings(GroupName = "Services")]
 public class CreateServiceController : ControllerBase

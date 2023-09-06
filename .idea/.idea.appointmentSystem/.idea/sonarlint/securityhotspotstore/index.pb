@@ -43,8 +43,6 @@ k
 ;appointmentSystem/ClientApp/src/environments/environment.ts,b/5/b5f99214368a3ee11d452f77c329a4312a1c9bbf
 `
 0appointmentSystem/Properties/launchSettings.json,9/a/9a4a51c78c444b630efc0f970eeade4d91111ba6
-E
-appointmentSystem.sln,a/6/a6546b0756a1a417c6ad2164b11807dfb8eff9fc
 s
 CappointmentSystem/Migrations/20230810082242_Application.Designer.cs,6/e/6e263a99234cbe2cdc30ea53c035d1f70b8a70dd
 ]
@@ -91,13 +89,9 @@ EappointmentSystem/Migrations/20230815162602_deleteNullableInModels.cs,f/8/f8ad
 KappointmentSystem/Migrations/20230818115233_changeDurationInInt.Designer.cs,2/6/26571bc225d7fd6ebf3df67369da158ebcb38f74
 r
 BappointmentSystem/Migrations/20230818115233_changeDurationInInt.cs,6/3/638a158615bc34a8259cedc58d1fdd3747f2ee21
-a
-1appointmentSystem/Exceptions/NotFoundException.cs,4/0/408cfff7ea1ee3f73cc5572d4ac963c4be09795b
 l
 <appointmentSystem/Exceptions/InternalServerErrorException.cs,7/9/79a7498d894681b0ed9c86a392870ca2b51a85c7
 c
 3appointmentSystem/Exceptions/BadGatewayException.cs,d/9/d9c9a6acb58cd666a85fc3ead6f924258afaeccf
-R
-"appointmentSystem/Models/Client.cs,7/a/7a7cef3da77bf9af7d42d5ac3ba1621ed2172c96
 S
 #appointmentSystem/Models/Service.cs,c/7/c70e911d1bd63b975d6153c5b52ebfbdd6942610

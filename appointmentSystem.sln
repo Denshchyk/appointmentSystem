@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "appointmentSystem", "appointmentSystem\appointmentSystem.csproj", "{B68DB4B4-E60C-4775-886F-10435BC88709}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentSystem.integrationTests", "AppointmentSystem.integrationTests\AppointmentSystem.integrationTests.csproj", "{12AED5A4-A614-4A4E-B0D6-CED51901541A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{B68DB4B4-E60C-4775-886F-10435BC88709}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B68DB4B4-E60C-4775-886F-10435BC88709}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B68DB4B4-E60C-4775-886F-10435BC88709}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12AED5A4-A614-4A4E-B0D6-CED51901541A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12AED5A4-A614-4A4E-B0D6-CED51901541A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12AED5A4-A614-4A4E-B0D6-CED51901541A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12AED5A4-A614-4A4E-B0D6-CED51901541A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
