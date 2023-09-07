@@ -16,11 +16,11 @@ namespace appointmentSystem.Controllers.Features.Clients;
 
 [ApiController]
 [ApiExplorerSettings(GroupName = "Clients")]
-public class ClientsController : ControllerBase
+public class GetAllClientsController : ControllerBase
 {
     private readonly IMediator _mediator;
 
-    public ClientsController(IMediator mediator)
+    public GetAllClientsController(IMediator mediator)
     {
         _mediator = mediator;
     }

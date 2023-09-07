@@ -9,5 +9,10 @@
   &lt;ProjectFile&gt;12AED5A4-A614-4A4E-B0D6-CED51901541A/d:TestClientsControllers/f:GetById.cs&lt;/ProjectFile&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c6c3eb95_002D2158_002D493b_002D98e0_002D80fb800f9bba/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from GetById.cs #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;ProjectFile&gt;12AED5A4-A614-4A4E-B0D6-CED51901541A/d:TestClientsControllers/f:GetById.cs&lt;/ProjectFile&gt;
+  &lt;Or&gt;
+    &lt;ProjectFile&gt;12AED5A4-A614-4A4E-B0D6-CED51901541A/d:TestClientsControllers/f:GetById.cs&lt;/ProjectFile&gt;
+    &lt;TestAncestor&gt;
+      &lt;TestId&gt;NUnit3x::12AED5A4-A614-4A4E-B0D6-CED51901541A::net6.0::AppointmentSystem.integrationTests.TestClientsControllers.GetAllClientsTests&lt;/TestId&gt;
+    &lt;/TestAncestor&gt;
+  &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
