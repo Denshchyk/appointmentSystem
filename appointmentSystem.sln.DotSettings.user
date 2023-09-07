@@ -1,4 +1,13 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=02d777ca_002Dbfac_002D4572_002D9c9b_002D76705398260b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CreateClient_ClientIsInvalid_Returns400" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Project Location="/Users/pavlodenshchyk/RiderProjects/appointmentSystem/AppointmentSystem.integrationTests" Presentation="&amp;lt;AppointmentSystem.integrationTests&amp;gt;" /&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0ccaeaee_002D5fa4_002D49f5_002D9f6c_002D031c6ac7604f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CreateClient_ClientIsValid_Returns200AndReturnsNewClient" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;NUnit3x::12AED5A4-A614-4A4E-B0D6-CED51901541A::net6.0::AppointmentSystem.integrationTests.TestClientsControllers.CreateClientTests.CreateClient_ClientIsValid_Returns200AndReturnsNewClient&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::12AED5A4-A614-4A4E-B0D6-CED51901541A::net6.0::AppointmentSystem.integrationTests.TestClientsControllers.CreateClientTests.CreateClient_ClientIsInvalid_ReturnsBadRequest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=36c38ccb_002D4dcc_002D439d_002Db517_002De6b78ed068d6/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from GetById.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;ProjectFile&gt;12AED5A4-A614-4A4E-B0D6-CED51901541A/d:TestClientsControllers/f:GetById.cs&lt;/ProjectFile&gt;
 &lt;/SessionState&gt;</s:String>
@@ -8,11 +17,16 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=73ed1bb1_002D3dea_002D4db6_002Dbf56_002D6c1adf5dd77d/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from GetById.cs #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;ProjectFile&gt;12AED5A4-A614-4A4E-B0D6-CED51901541A/d:TestClientsControllers/f:GetById.cs&lt;/ProjectFile&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c6c3eb95_002D2158_002D493b_002D98e0_002D80fb800f9bba/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from GetById.cs #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c6c3eb95_002D2158_002D493b_002D98e0_002D80fb800f9bba/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from GetById.cs #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Or&gt;
     &lt;ProjectFile&gt;12AED5A4-A614-4A4E-B0D6-CED51901541A/d:TestClientsControllers/f:GetById.cs&lt;/ProjectFile&gt;
     &lt;TestAncestor&gt;
       &lt;TestId&gt;NUnit3x::12AED5A4-A614-4A4E-B0D6-CED51901541A::net6.0::AppointmentSystem.integrationTests.TestClientsControllers.GetAllClientsTests&lt;/TestId&gt;
+      &lt;TestId&gt;NUnit3x::12AED5A4-A614-4A4E-B0D6-CED51901541A::net6.0::AppointmentSystem.integrationTests.TestClientsControllers.DeleteClientTests.DeleteClient_ClientDoesntExist_Returns404&lt;/TestId&gt;
+      &lt;TestId&gt;NUnit3x::12AED5A4-A614-4A4E-B0D6-CED51901541A::net6.0::AppointmentSystem.integrationTests.TestClientsControllers.DeleteClientTests.DeleteArticle_ArticleExists_Returns204AndDeletesFromDatabase&lt;/TestId&gt;
+      &lt;TestId&gt;NUnit3x::12AED5A4-A614-4A4E-B0D6-CED51901541A::net6.0::AppointmentSystem.integrationTests.TestClientsControllers.DeleteClientTests.DeleteClient_ClientExists_Returns404AndDeletesFromDatabase&lt;/TestId&gt;
+      &lt;TestId&gt;NUnit3x::12AED5A4-A614-4A4E-B0D6-CED51901541A::net6.0::AppointmentSystem.integrationTests.TestClientsControllers.DeleteClientTests.DeleteClient_ClientExists_ReturnsNoContentAndShouldBeNull&lt;/TestId&gt;
+      &lt;TestId&gt;NUnit3x::12AED5A4-A614-4A4E-B0D6-CED51901541A::net6.0::AppointmentSystem.integrationTests.TestClientsControllers.CreateClientTests.CreateClient_ClientIsValid_Returns201AndReturnsNewClient&lt;/TestId&gt;
     &lt;/TestAncestor&gt;
   &lt;/Or&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
