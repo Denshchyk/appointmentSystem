@@ -89,9 +89,5 @@ EappointmentSystem/Migrations/20230815162602_deleteNullableInModels.cs,f/8/f8ad
 KappointmentSystem/Migrations/20230818115233_changeDurationInInt.Designer.cs,2/6/26571bc225d7fd6ebf3df67369da158ebcb38f74
 r
 BappointmentSystem/Migrations/20230818115233_changeDurationInInt.cs,6/3/638a158615bc34a8259cedc58d1fdd3747f2ee21
-l
-<appointmentSystem/Exceptions/InternalServerErrorException.cs,7/9/79a7498d894681b0ed9c86a392870ca2b51a85c7
-c
-3appointmentSystem/Exceptions/BadGatewayException.cs,d/9/d9c9a6acb58cd666a85fc3ead6f924258afaeccf
 S
 #appointmentSystem/Models/Service.cs,c/7/c70e911d1bd63b975d6153c5b52ebfbdd6942610

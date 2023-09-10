@@ -1,6 +1,7 @@
 using System;
 using System.Configuration;
 using System.Text;
+using appointmentSystem.Configuration;
 using appointmentSystem.Data;
 using appointmentSystem.Filters;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -28,16 +29,16 @@ builder.Services.AddAuthentication(x =>
     x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(x =>
 {
+    var jwtSettings = builder.Configuration.GetSection("JwtSettings").Get<JwtSettings>();
     x.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidIssuer = builder.Configuration["JwtSettings:Issuer"],
-        ValidAudience = builder.Configuration["JwtSettings.Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey
-            (Encoding.UTF8.GetBytes(builder.Configuration["JwtSettings:Key"]!)),
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateLifetime = true,
-        ValidateIssuerSigningKey = true
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings!.Key)),
+        ValidIssuer = jwtSettings.Issuer,
+        ValidAudience = jwtSettings.Audience
     };
 });
 builder.Services.AddAuthorization();
