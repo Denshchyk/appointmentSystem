@@ -61,8 +61,6 @@ U
 +appointmentSystem/ClientApp/.browserslistrc,b/e/bed7010d72171c384b3849b838b0d1c6840e8b80
 Y
 )appointmentSystem/ClientApp/tsconfig.json,4/e/4e0547dfd1cabacfafcfb0a624d7cec3f5d16c25
-X
-(appointmentSystem/ClientApp/package.json,2/3/2345e5224b7603c61356523566f9789d51188be7
 V
 &appointmentSystem/ClientApp/.gitignore,3/0/30793339b90b75b7d2711de552ea00cc914d79f1
 _
